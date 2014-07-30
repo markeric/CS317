@@ -1,0 +1,71 @@
+//Mark Laskowski
+//CS 317, homework 1
+//06/03/14
+//This program uses insertion sort to order a list of elements
+//(in this case integers). Sort iterates through the array, consuming one
+// elemnt from the unsorted portion of the array on each iteration. 
+// It swaps to the left through the sorted portion of array 
+// untill it finds where the element belongs in the  
+// sorted portion of array and inserts it there. 
+// This process stops until no unsorted elements remain.
+
+#include "stdafx.h"
+#include <iostream>
+#define size 6
+
+using namespace std;
+
+int main()
+{
+
+	
+
+//declare program variables
+	int progarray[size] = {0};
+	int i, j, num, next, insert, movepos;
+
+
+	//input values into array
+	for (i = 0; i < size; i++) {
+
+		//for each element, put that element into the array
+		cout << "enter a number please" << endl;
+		cin >> num;
+		progarray[i] = num;
+
+
+	}//end for loop
+
+
+//create for loop to traverse array
+	for (next = 1; next < size; next++) {
+
+		insert = progarray[next];//save the element to be inserted
+
+		movepos = next;
+
+		//while elemets are bigger and not at beginning of array...
+		while (movepos > 0 && progarray[movepos - 1] > insert) {
+
+			//make room to the left
+			progarray[movepos] = progarray[movepos - 1];
+			movepos--;
+
+		}
+
+		progarray[movepos] = insert;//insert element in its correct place
+
+	}//end for loop
+
+
+
+
+     //output the array
+	for (i = 0; i < size; i++) {
+
+		cout << progarray[i] << "   ";
+
+	}//end for loop
+
+return 0;
+}
